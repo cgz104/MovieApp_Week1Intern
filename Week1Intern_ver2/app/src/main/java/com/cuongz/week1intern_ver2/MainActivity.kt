@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.cuongz.week1intern_ver2.Model.Movie
+import com.cuongz.week1intern_ver2.Model.MovieTrailer
 import com.cuongz.week1intern_ver2.PopularMovies.InterfacePopular
 import com.cuongz.week1intern_ver2.PopularMovies.PopularAdapter
 import com.cuongz.week1intern_ver2.PopularMovies.PopularPresenter
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity(), InterfacePopular.View {
         setContentView(R.layout.activity_main)
 
         presenter.getPopularMovie()
+
     }
 
     override fun setPresenter(presenter: InterfacePopular.Presenter) {
@@ -36,4 +38,5 @@ class MainActivity : AppCompatActivity(), InterfacePopular.View {
     override fun onFailure() {
 
     }
+
 }

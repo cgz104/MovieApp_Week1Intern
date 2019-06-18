@@ -3,40 +3,38 @@ package com.cuongz.week1intern_ver2.Model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-
-
 class MovieTrailer {
+
     @SerializedName("id")
     @Expose
-    private var id: Int? = null
-    @SerializedName("quicktime")
+    var id: String? = null
+
+    @SerializedName("iso_639_1")
     @Expose
-    private var quicktime: List<Any>? = null
-    @SerializedName("youtube")
+    var iso6391: String? = null
+
+    @SerializedName("iso_3166_1")
     @Expose
-    private var youtube: List<Youtube>? = null
+    var iso31661: String? = null
 
-    fun getId(): Int? {
-        return id
-    }
+    @SerializedName("key")
+    @Expose
+    var key: String? = null
 
-    fun setId(id: Int?) {
-        this.id = id
-    }
+    @SerializedName("name")
+    @Expose
+    var name: String? = null
 
-    fun getQuicktime(): List<Any>? {
-        return quicktime
-    }
+    @SerializedName("site")
+    @Expose
+    var site: String? = null
 
-    fun setQuicktime(quicktime: List<Any>) {
-        this.quicktime = quicktime
-    }
+    @SerializedName("size")
+    @Expose
+    var size: Int? = null
 
-    fun getYoutube(): List<Youtube>? {
-        return youtube
-    }
+    @SerializedName("type")
+    @Expose
+    var type: String? = null
 
-    fun setYoutube(youtube: List<Youtube>) {
-        this.youtube = youtube
-    }
 }

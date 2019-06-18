@@ -1,7 +1,9 @@
 package com.cuongz.week1intern_ver2.PopularMovies
 
+import android.util.Log
 import com.cuongz.week1intern_ver2.Api.Api
 import com.cuongz.week1intern_ver2.Model.MovieTrailer
+import com.cuongz.week1intern_ver2.Model.MovieTrailerResponse
 import com.cuongz.week1intern_ver2.Model.MoviesResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,5 +25,6 @@ class PopularPresenter(val view: InterfacePopular.View): InterfacePopular.Presen
 
         })
     }
+
 
 }
