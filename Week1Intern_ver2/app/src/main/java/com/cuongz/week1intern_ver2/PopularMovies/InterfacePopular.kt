@@ -11,13 +11,10 @@ interface InterfacePopular {
         fun onSuccess(listMovie: List<Movie>?)
 
         fun onFailure()
-
-
     }
 
-
     interface Presenter{
-        fun getPopularMovie(page: Int = 1)
+        fun getPopularMovie(page: Int)
 
     }
 

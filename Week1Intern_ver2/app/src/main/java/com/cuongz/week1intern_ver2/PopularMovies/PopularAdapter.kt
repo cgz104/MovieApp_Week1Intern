@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.cuongz.week1intern_ver2.InsideItem
 import com.cuongz.week1intern_ver2.MainActivity
 import com.cuongz.week1intern_ver2.Model.Genres
 import com.cuongz.week1intern_ver2.Model.Movie
@@ -65,36 +66,41 @@ class PopularAdapter(var listMovie: List<Movie>): RecyclerView.Adapter<PopularAd
                 override fun onClick(v: View?) {
 //                    trailerPresenter.getMovieTrailer(movie.getId()!!)
 //                    Toast.makeText(itemView.context, "testing", Toast.LENGTH_SHORT).show()
-                    getKey(movie)
-                    
-                    Handler().postDelayed(object: Runnable{
-                        override fun run() {
-                            Log.w("keyintent", "$keyToYoutube")
-                            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:${keyToYoutube}"))
-                            startActivity(itemView.context, intent, null)
-                        }
-                    }, 5000)
-//                    var intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:${keyToYoutube}"))
-//                    startActivity(itemView.context, intent, null)
+//                    getKey(movie)
+//
+//                    Handler().postDelayed(object: Runnable{
+//                        override fun run() {
+//                            Log.w("keyintent", "$keyToYoutube")
+//                            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:${keyToYoutube}"))
+//                            startActivity(itemView.context, intent, null)
+//                        }
+//                    }, 5000)
+                    var intent = Intent(v?.context,InsideItem::class.java)
+//                    intent.putExtra("movieID", movie.getId())
+//                    intent.putExtra("movieOverview", movie.getOverview())
+//                    intent.putExtra("moviePosterURL", movie.getPosterPath())
+//                    intent.putExtra("movieTitle", movie.getTitle())
+                    intent.putExtra("object", movie)
+                    v?.context?.startActivity(intent)
                 }
 
             })
         }
-        fun getKey(movie: Movie){
-            var trailerPresenter = MovieTrailerPresenter()
-            var key: String? = null
-            trailerPresenter.getMovieTrailer(movie.getId()!!)
-            Handler().postDelayed(object: Runnable{
-                override fun run() {
-
-                    keyToYoutube = trailerPresenter.getKeyFromApi()
-                    Log.w("key1234", "$keyToYoutube")
-
-                }
-            }, 3000)
-
-
-        }
+//        fun getKey(movie: Movie){
+//            var trailerPresenter = MovieTrailerPresenter()
+//            var key: String? = null
+//            trailerPresenter.getMovieTrailer(movie.getId()!!)
+//            Handler().postDelayed(object: Runnable{
+//                override fun run() {
+//
+//                    keyToYoutube = trailerPresenter.getKeyFromApi()
+//                    Log.w("key1234", "$keyToYoutube")
+//
+//                }
+//            }, 3000)
+//
+//
+//        }
 
     }
 

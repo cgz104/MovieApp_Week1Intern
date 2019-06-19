@@ -1,9 +1,12 @@
 package com.cuongz.week1intern_ver2.Model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Movie {
+class Movie() : Parcelable {
+
     @SerializedName("vote_count")
     @Expose
     private var voteCount: Int? = null
@@ -59,6 +62,22 @@ class Movie {
     @SerializedName("release_date")
     @Expose
     private var releaseDate: String? = null
+
+    constructor(parcel: Parcel) : this() {
+        voteCount = parcel.readValue(Int::class.java.classLoader) as? Int
+        id = parcel.readValue(Int::class.java.classLoader) as? Int
+        video = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
+        voteAverage = parcel.readValue(Double::class.java.classLoader) as? Double
+        title = parcel.readString()
+        popularity = parcel.readValue(Double::class.java.classLoader) as? Double
+        posterPath = parcel.readString()
+        originalLanguage = parcel.readString()
+        originalTitle = parcel.readString()
+        backdropPath = parcel.readString()
+        adult = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
+        overview = parcel.readString()
+        releaseDate = parcel.readString()
+    }
 
     fun getVoteCount(): Int? {
         return voteCount
@@ -170,5 +189,35 @@ class Movie {
 
     fun setReleaseDate(releaseDate: String) {
         this.releaseDate = releaseDate
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(voteCount)
+        parcel.writeValue(id)
+        parcel.writeValue(video)
+        parcel.writeValue(voteAverage)
+        parcel.writeString(title)
+        parcel.writeValue(popularity)
+        parcel.writeString(posterPath)
+        parcel.writeString(originalLanguage)
+        parcel.writeString(originalTitle)
+        parcel.writeString(backdropPath)
+        parcel.writeValue(adult)
+        parcel.writeString(overview)
+        parcel.writeString(releaseDate)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Movie> {
+        override fun createFromParcel(parcel: Parcel): Movie {
+            return Movie(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Movie?> {
+            return arrayOfNulls(size)
+        }
     }
 }
