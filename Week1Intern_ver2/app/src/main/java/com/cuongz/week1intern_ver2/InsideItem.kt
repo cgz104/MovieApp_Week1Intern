@@ -34,7 +34,12 @@ class InsideItem : AppCompatActivity(), InterfacePopular.Trailer {
 
         var objectMovie = intent.getParcelableExtra<Movie>("object")
 
-        trailerPresenter.getMovieTrailer(objectMovie.getId()!!)
+        val movieID = objectMovie.getId()
+        if(movieID != null){
+            trailerPresenter.getMovieTrailer(movieID)
+        }
+
+
 
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500${objectMovie.getBackdropPath()}")
