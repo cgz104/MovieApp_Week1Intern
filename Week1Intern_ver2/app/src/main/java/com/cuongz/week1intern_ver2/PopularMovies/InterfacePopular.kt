@@ -1,7 +1,6 @@
 package com.cuongz.week1intern_ver2.PopularMovies
 
 import com.cuongz.week1intern_ver2.Model.Movie
-import com.cuongz.week1intern_ver2.Model.MovieTrailer
 
 interface InterfacePopular {
 

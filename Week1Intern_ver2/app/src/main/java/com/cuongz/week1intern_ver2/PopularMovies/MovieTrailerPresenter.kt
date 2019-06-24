@@ -1,7 +1,5 @@
 package com.cuongz.week1intern_ver2.PopularMovies
 
-import android.os.Handler
-import android.util.Log
 import com.cuongz.week1intern_ver2.Api.Api
 import com.cuongz.week1intern_ver2.Model.MovieTrailerResponse
 import retrofit2.Call
