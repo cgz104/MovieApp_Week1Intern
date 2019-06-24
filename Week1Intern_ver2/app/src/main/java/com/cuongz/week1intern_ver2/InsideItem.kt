@@ -1,13 +1,15 @@
 package com.cuongz.week1intern_ver2
 
 import android.content.Intent
+import android.graphics.*
+import android.animation.*
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.View
-import android.widget.Toast
+import android.view.*
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.cuongz.week1intern_ver2.Model.Movie
@@ -20,16 +22,16 @@ class InsideItem : AppCompatActivity(), InterfacePopular.Trailer {
     private var trailerPresenter = MovieTrailerPresenter(this)
     private var keyYoutube: String? = null
 
+    private var currentAnimator: Animator? = null
+    private var shortAnimationDuration: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inside_item)
 
 
         var intent: Intent = getIntent()
-//        var movieID = intent.getIntExtra("movieID", 0)
-//        var movieTitle = intent.getStringExtra("movieTitle")
-//        var movieOverview = intent.getStringExtra("movieOverview")
-//        var moviePosterURL = intent.getStringExtra("moviePosterURL")
+
         var objectMovie = intent.getParcelableExtra<Movie>("object")
 
         trailerPresenter.getMovieTrailer(objectMovie.getId()!!)
@@ -47,6 +49,7 @@ class InsideItem : AppCompatActivity(), InterfacePopular.Trailer {
 
         mvOverview.text = objectMovie.getOverview()
         mvTitle.text = objectMovie.getTitle()
+
         trailerMovie.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 var loadingToast = Toast.makeText(v?.context, "Loading", Toast.LENGTH_SHORT)
@@ -61,6 +64,9 @@ class InsideItem : AppCompatActivity(), InterfacePopular.Trailer {
                 }, 1000)
             }
         })
+
+
+
     }
 
     override fun onSuccessTrailer(key: String?) {
@@ -70,4 +76,5 @@ class InsideItem : AppCompatActivity(), InterfacePopular.Trailer {
     override fun onFailureTrailer() {
 
     }
+
 }
