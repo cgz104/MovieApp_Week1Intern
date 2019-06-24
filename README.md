@@ -14,7 +14,7 @@
 * [x] Add pull-to-refresh for popular stream with SwipeRefreshLayout
 * [x] Allow user to view details of the movie including ratings and popularity within a separate activity or dialog fragment.
 
-## Video Walkthrough
+## Images
 
 Here's a walkthrough of implemented user stories:
 
