@@ -5,8 +5,6 @@
 
 ## User Stories
 
-The following **required** functionality is completed:
-
 * [x] User can view a list of movies (title, poster image, and overview) currently playing in theaters from the Movie Database API.
 * [x] List item with the [RecyclerView](https://guides.codepath.com/android/Using-the-RecyclerView).
 * [x] For each movie displayed, user can see the following details:
